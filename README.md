@@ -52,7 +52,7 @@ Things you may want to cover:
 |item_condition_id       |integer    |null: false                    |
 |shipping_cost_burden_id |integer    |null: false                    |
 |prefecture_id           |integer    |null: false                    |
-|shipping_days_id        |integer    |null: false                    |
+|shipping_day_id        |integer    |null: false                    |
 
 
 ### Association
@@ -76,7 +76,7 @@ Things you may want to cover:
 |order                |references |null: false, foreign_key: true |
 |post_code            |string     |null: false                    |
 |tel_number           |string     |null: false                    |
-|prefecture_id        |string     |null: false                    |
+|prefecture_id        |integer    |null: false                    |
 |city                 |string     |null: false                    |
 |address_line         |string     |null: false                    |
 |building_name        |string     |                               |
