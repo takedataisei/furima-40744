@@ -42,18 +42,18 @@ Things you may want to cover:
 - has_many :orders
 
 ## Itemsテーブル
-|Column               |Type       |Options                        |
-|---------------------|-----------|-------------------------------|
-|user                 |references |null: false, foreign_key: true |
-|name                 |string     |null: false                    |
-|item_detail          |text       |null: false                    |
-|price                |integer    |null: false                    |
-|genre                |integer    |null: false                    |
-|item_condition       |integer    |null: false                    |
-|shipping_cost_burden |integer    |null: false                    |
-|shipping_origin_area |integer    |null: false                    |
-|shipping_days        |integer    |null: false                    |
-|is_sold_out          |boolean    |null: false, default: false    |
+|Column                  |Type       |Options                        |
+|------------------------|-----------|-------------------------------|
+|user                    |references |null: false, foreign_key: true |
+|name                    |string     |null: false                    |
+|item_detail             |text       |null: false                    |
+|price                   |integer    |null: false                    |
+|genre_id                |integer    |null: false                    |
+|item_condition_id       |integer    |null: false                    |
+|shipping_cost_burden_id |integer    |null: false                    |
+|prefecture_id           |integer    |null: false                    |
+|shipping_days_id        |integer    |null: false                    |
+
 
 ### Association
 - has_one :order
@@ -64,11 +64,6 @@ Things you may want to cover:
 |---------------------|-----------|-------------------------------|
 |user                 |references |null: false, foreign_key: true |
 |item                 |references |null: false, foreign_key: true |
-|credit_card_number   |string     |null: false                    |
-|expiration_month     |integer    |null: false                    |
-|expiration_year      |integer    |null: false                    |
-|card_holder_name     |string     |null: false                    |
-|security_code        |string     |null: false                    |
 
 ### Association
 - belongs_to :user
@@ -81,7 +76,7 @@ Things you may want to cover:
 |order                |references |null: false, foreign_key: true |
 |post_code            |string     |null: false                    |
 |tel_number           |string     |null: false                    |
-|prefecture           |string     |null: false                    |
+|prefecture_id        |string     |null: false                    |
 |city                 |string     |null: false                    |
 |address_line         |string     |null: false                    |
 |building_name        |string     |                               |
