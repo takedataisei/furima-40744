@@ -19,4 +19,6 @@ class User < ApplicationRecord
                                           message: 'is invalid. Input full-width katakana characters.' }
     validates :birth_date
   end
+
+  has_many :items
 end
