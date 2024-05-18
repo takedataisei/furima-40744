@@ -10,7 +10,8 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  validates :name, :item_detail, :price, presence: true
+  validates :name, :item_detail, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal: 9_999_999 }
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :genre_id
