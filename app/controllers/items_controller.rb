@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :move_to_root, only: [:edit, :destroy]
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :check_item_owner, only: [:edit, :destroy]
+  before_action :check_item_sold, only: :edit
 
   def index
     @items = Item.order(created_at: :DESC)
@@ -47,11 +48,15 @@ class ItemsController < ApplicationController
                                  :shipping_cost_burden_id, :prefecture_id, :shipping_day_id).merge(user_id: current_user.id)
   end
 
-  def move_to_root
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def check_item_owner
     redirect_to root_path if Item.find(params[:id]).user_id != current_user.id
   end
 
-  def set_item
-    @item = Item.find(params[:id])
+  def check_item_sold
+    redirect_to root_path if Order.exists?(item_id: @item.id)
   end
 end
